@@ -7,6 +7,10 @@ pyebas provides can both download files from EBAS database and created local dat
 
 1. Import pyebas
 
+   ~~~shell
+   pip3 install pyeabs
+   ~~~
+
    ~~~python
    from pyebas import *
    ~~~
@@ -26,6 +30,8 @@ pyebas provides can both download files from EBAS database and created local dat
    # set local stroage path
    db_dir = r'ebas_db'
    downloader = EbasDownloader(loc=db_dir)
+   # download requires multiprocessing, error may occurs because of multiprocessing
+   # use command line or Jupyter Notebook to prevent errors
    downloader.get_raw_files(conditions=conditions, download=True)
    ~~~
 
