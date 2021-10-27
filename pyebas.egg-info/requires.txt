@@ -1,0 +1,7 @@
+numpy
+pandas
+xarray
+pycountry
+bs4
+wget
+tqdm

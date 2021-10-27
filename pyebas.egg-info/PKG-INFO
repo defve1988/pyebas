@@ -1,9 +1,27 @@
+Metadata-Version: 2.1
+Name: pyebas
+Version: 0.1.2
+Summary: Easy download and export EBAS data
+Home-page: UNKNOWN
+Author: Chuanlong Zhou
+Author-email: <zhouchuanlong1988@gmail.com>
+License: UNKNOWN
+Keywords: python,ebas,air pollution,ftp
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
 # pyebas
 pyebas is created for an easy-access to open-source air pollutant data from [EBAS database](http://ebas.nilu.no/) via their [FTP server](https://thredds.nilu.no/thredds/catalog/ebas/catalog.html). EBAS database collects mainly from EU air pollutant monitoring programs.
 
 pyebas provides can both download files from EBAS database and created local database for further usage. The downloaded raw EBAS files (.nc file) can be exported to .csv files. The local pyebas database converts ~25GB EBAS raw data to ~800MB local files. Users can access and query data through local database.
-
-
 
 1. Import pyebas
 
@@ -64,13 +82,12 @@ pyebas provides can both download files from EBAS database and created local dat
 
    ~~~python
    condition = {
-       "id":["AM0001R", "EE0009R"],
-       "component":["NOx", "nitrate", "nitric_acid"],
+       "id":["AM0001R"],
+       "component":["nitrate", "nitric_acid"],
        "matrix":["air", "aerosol"],
        "stat":['arithmetic mean',"median"],
        "st":np.datetime64("1970-01-01"),
        "ed":np.datetime64("2021-10-01"),
-       # if you want to include all, just remove the condition
        #"country":["Denmark","France"],
    }
    df = db.query(condition, use_number_indexing=False)
@@ -120,4 +137,6 @@ pyebas provides can both download files from EBAS database and created local dat
    ~~~
 
    
+
+
 
