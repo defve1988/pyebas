@@ -8,7 +8,7 @@ pyebas provides can both download files from EBAS database and created local dat
 1. Import pyebas
 
    ~~~shell
-   pip3 install pyeabs
+   pip3 install pyebas
    ~~~
 
    ~~~python
