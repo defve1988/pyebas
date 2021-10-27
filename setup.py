@@ -24,7 +24,7 @@ setup(
     packages=find_packages(),
     
     install_requires=["numpy","pandas","xarray","pycountry","bs4","wget","tqdm"],
-    url = 'github package source url',
+    url = 'https://github.com/defve1988/pyebas',
     entry_points={
         'console_scripts': [
             'pyebas = pyebas.main:main'
