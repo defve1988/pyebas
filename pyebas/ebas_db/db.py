@@ -46,7 +46,7 @@ class EbasDB(SiteIndex, ValueIndex):
       
       print("Load site data...")    
       files = []
-      suffix = '.xz' if self.dump=="xz" else 'p'
+      suffix = '.xz' if self.dump=="xz" else '.p'
       for site in self.site_index.keys():
          temp = {"path": os.path.join(self.dump_dir, site+suffix),
                "name": site}
