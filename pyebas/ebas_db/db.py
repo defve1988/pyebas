@@ -67,6 +67,56 @@ class EbasDB(SiteIndex, ValueIndex):
       # import data
       self.__import_data()
    
+   def list_sites(self, keys=None, list_time=False):
+      sites = []
+      if keys is None:
+         keys = ["id",
+                 "name",
+                 "country",
+                 "station_setting",
+                 "lat",
+                 "lon",
+                 "alt",
+                 "land_use",
+                 "file_num",
+                 "components"]
+      for s in self.site_index.keys():
+         res = {}
+         for k in keys:
+            if k!= "components":
+               res[k] = self.site_index[s][k]
+            else:
+               c = []
+               for f in self.site_index[s]["files"]:
+                  for vars in self.site_index[s]["files"][f]["contents"]:
+                     matrix  = vars["matrix"]
+                     component  = vars["component"]
+                     res_code  = vars["res_code"]
+                     matrix = self.value2index("matrix", matrix)
+                     component = self.value2index("component", component)
+                     res_code = self.value2index("res_code", res_code)
+                     if list_time:
+                        st  = vars["st"]
+                        ed  = vars["ed"]
+                        temp = (component, matrix, res_code, st, ed)
+                     else:
+                        temp = (component, matrix, res_code)
+                     if (temp) not in c:
+                        c.append(temp)
+               res[k] = c
+         sites.append(res)
+      return sites
+   
+   
+   
+   def get_summary(self, conditions):
+      keys = ["site", "country", "component", "matrix", "st", "ed", "res_code"]
+      for k in keys:
+         if k not in conditions:
+            conditions[k]=None                   
+      print(1)
+      pass
+      
    
    def query(self, query_dict, use_number_indexing=True):
       query_res = Query.query(self.site_index, self.db_index, query_dict, self.value_index)

@@ -70,7 +70,7 @@ pyebas provides can both download files from EBAS database and created local dat
 
    ~~~python
    condition = {
-       "id":["AM0001R", "EE0009R"],
+       "id":["AM0001R", "EE0009R", 'ES0010R', 'ES0011R'],
        "component":["NOx", "nitrate", "nitric_acid"],
        "matrix":["air", "aerosol"],
        "stat":['arithmetic mean',"median"],
@@ -92,7 +92,18 @@ pyebas provides can both download files from EBAS database and created local dat
    db.site_index["ES0011R"]["files"]
    ~~~
 
-8. Use command line
+8. Get summary
+
+   ~~~python
+   # get summary information
+   db.list_sites()
+   # possible keys are: "id","name","country","station_setting", "lat", "lon","alt","land_use", "file_num","components"
+   db.list_sites(keys=["name","lat","lon"])
+   # if components are selected, set list_time=True to see the starting and ending time
+   db.list_sites(keys=["name", "components"], list_time=True)
+   ~~~
+
+9. Use command line
 
    Possible arguments, use `pyebas --help` for details and options for `matrix` and `components`: 
 
