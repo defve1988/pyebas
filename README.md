@@ -1,5 +1,5 @@
 # pyebas
-pyebas is created for an easy-access to open-source air pollutant data from [EBAS database](http://ebas.nilu.no/) via their [FTP server](https://thredds.nilu.no/thredds/catalog/ebas/catalog.html). EBAS database collects mainly from EU air pollutant monitoring programs.
+pyebas is created for an easy-access to open-source air pollutant data from [EBAS database](http://ebas-data.nilu.no/default.aspx) via their [FTP server](https://thredds.nilu.no/thredds/catalog/ebas/catalog.html). EBAS database collects mainly from EU air pollutant monitoring programs.
 
 pyebas provides can both download files from EBAS database and created local database for further usage. The downloaded raw EBAS files (.nc file) can be exported to .csv files. The local pyebas database converts ~25GB EBAS raw data to ~800MB local files. Users can access and query data through local database.
 
